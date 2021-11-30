@@ -88,7 +88,7 @@ class Header extends React.Component {
           <div className={styles.loginSignnUpHeaders}>
             <div className={styles.numberContainer}>
               <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
-              <span>(877)&nbsp;355-3585</span>
+              <a href="tel:+18773553585"><span>(877)&nbsp;355-3585</span></a>
             </div>
             <div className={styles.userButtonsContainer}>
               {this.renderLoginButtons()}
