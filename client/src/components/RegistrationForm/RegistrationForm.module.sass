@@ -9,6 +9,7 @@
   margin-top: 80px
   padding: 10px 20px 30px
   box-sizing: border-box
+ 
 
   .choseRoleContainer
     display: flex
@@ -21,6 +22,7 @@
     margin-right: 20px
     @media(max-width: 850px)
       align-self: auto
+      
 
   .submitContainer
     align-self: stretch
@@ -38,6 +40,7 @@
     margin-right: 20px
     @media(max-width: 850px)
       align-self: auto
+      
 
 
   .inscription
@@ -53,6 +56,7 @@
     margin-right: 20px
     margin-left: 20px
     margin-bottom: 10px
+    
 
 
     .fieldWarning
@@ -112,6 +116,9 @@
       margin-right: 20px
       margin-left: 20px
       flex: 1 1
+      position: relative
+     
+      
 
       .fieldWarning
         font-size: 15px
@@ -125,6 +132,12 @@
         padding-bottom: 5px
         padding-top: 5px
         text-align: center
+        position: absolute
+        top: 80%
+        left: 0
+        right: 0
+        z-index: 2
+        background-color: #b72522
 
     .input
       background-color: white
@@ -138,6 +151,8 @@
       flex: 1
       @media(max-width: 1400px)
         align-self: normal
+        
+        
 
     .notValid
       border: 2px solid red !important
