@@ -54,9 +54,14 @@ class Header extends React.Component {
                   <span>Affiliate Dashboard</span>
                 </Link>
               </li>
+              <Link 
+              to="/"
+              style={{ textDecoration: 'none' }}
+              >
               <li>
                 <span onClick={this.logOut}>Logout</span>
               </li>
+              </Link>
             </ul>
           </div>
           <img
@@ -118,28 +123,28 @@ class Header extends React.Component {
                   />
                   <ul>
                     <li>
-                      <a href="http://www.google.com">Beauty</a>
+                      <a href="http://www.google.com">BEAUTY</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Consulting</a>
+                      <a href="http://www.google.com">CONSULTING</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">E-Commerce</a>
+                      <a href="http://www.google.com">E-COMMERCE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Fashion & Clothing</a>
+                      <a href="http://www.google.com">FASHION & CLOTHING</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Finance</a>
+                      <a href="http://www.google.com">FINANCE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Real Estate</a>
+                      <a href="http://www.google.com">REAL ESTATE</a>
                     </li>
                     <li>
-                      <a href="http://www.google.com">Tech</a>
+                      <a href="http://www.google.com">TECH</a>
                     </li>
                     <li className={styles.last}>
-                      <a href="http://www.google.com">More Categories</a>
+                      <a href="http://www.google.com">MORE CATEGORIES</a>
                     </li>
                   </ul>
                 </li>
