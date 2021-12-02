@@ -11,24 +11,22 @@ import BackButton from '../../components/BackButton/BackButton';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
+import { useHistory } from 'react-router';
 
 const ContestCreationPage = (props) => {
+  const history = useHistory();
   const formRef = useRef();
   const contestData = props.contestStore.contests[props.contestType]
     ? props.contestStore.contests[props.contestType]
     : { contestType: props.contestType };
 
   const handleSubmit = (values) => {
-    /* Fix server validation failure for "nameVenture" field */
-    if (values.nameVenture === '') {
-      delete values.nameVenture;
-    }
     props.saveContest({ type: props.contestType, info: values });
     const route =
       props.bundleStore.bundle[props.contestType] === 'payment'
         ? '/payment'
         : `${props.bundleStore.bundle[props.contestType]}Contest`;
-    props.history.push(route);
+    history.push(route);
   };
 
   const submitForm = () => {
@@ -37,7 +35,7 @@ const ContestCreationPage = (props) => {
     }
   };
 
-  !props.bundleStore.bundle && props.history.replace('/startContest');
+  !props.bundleStore.bundle && history.replace('/startContest');
 
   return (
     <div>
