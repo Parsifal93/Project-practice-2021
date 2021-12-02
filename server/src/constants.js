@@ -34,9 +34,9 @@ module.exports = {
   CREATOR_ENTRIES: 'creator_entries',
 
   CONTEST_STATUSES: {
-    CONTEST_STATUS_ACTIVE: 'active',
-    CONTEST_STATUS_FINISHED: 'finished',
-    CONTEST_STATUS_PENDING: 'pending',
+    ACTIVE: 'active',
+    FINISHED: 'finished',
+    PENDING: 'pending',
   },
 
   CONTEST_TYPES: {

@@ -1,6 +1,8 @@
 const { Model } = require('sequelize');
 const CONSTANTS = require('../constants');
 
+// await bcrypt.hash(req.body.password, CONSTANTS.SALT_ROUNDS)
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {

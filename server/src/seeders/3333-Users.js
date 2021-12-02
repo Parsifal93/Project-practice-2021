@@ -13,6 +13,8 @@ module.exports = {
           password: await bcrypt.hash('123123', CONSTANTS.SALT_ROUNDS),
           email: 'buyer@mail.com',
           role: CONSTANTS.ROLES.CUSTOMER,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           firstName: 'creative',
@@ -21,6 +23,8 @@ module.exports = {
           password: await bcrypt.hash('123123', CONSTANTS.SALT_ROUNDS),
           email: 'creative@mail.com',
           role: CONSTANTS.ROLES.CREATOR,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
