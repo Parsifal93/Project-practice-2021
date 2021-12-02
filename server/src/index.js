@@ -1,7 +1,7 @@
-const http = require('http');
-const app = require('./app');
 require('dotenv').config();
 require('./dbMongo/mongoose');
+const http = require('http');
+const app = require('./app');
 const controller = require('./socketInit');
 
 const PORT = process.env.PORT || 3000;
