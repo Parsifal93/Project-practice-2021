@@ -1,78 +1,96 @@
-
+const { Model } = require('sequelize');
+const CONSTANTS = require('../constants');
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('Users', {
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER,
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    displayName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    avatar: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'anon.png',
-    },
-    role: {
-      type: DataTypes.ENUM('customer', 'creator'),
-      allowNull: false,
-    },
-    balance: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: 0,
-      validate: {
-        min: 0,
+  class User extends Model {
+    static associate(models) {
+      // TODO associations
+    }
+  }
+  User.init(
+    {
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      displayName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      avatar: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'anon.png',
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      role: {
+        type: DataTypes.ENUM(...Object.values(CONSTANTS.ROLES)),
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+      },
+      balance: {
+        type: DataTypes.DECIMAL,
+        allowNull: false,
+        defaultValue: 0,
+        validate: {
+          notNull: true,
+          min: 0,
+        },
+      },
+      rating: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        defaultValue: 0,
+        validate: {
+          notNull: true,
+          min: 0,
+          max: 5,
+        },
       },
     },
-    rating: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      defaultValue: 0,
-    },
-  },
-  {
-    timestamps: false,
-  });
-
-  User.associate = function (models) {
-    User.hasMany(models.Order, { foreignKey: 'user_id', targetKey: 'id' });
-  };
-
-  User.associate = function (models) {
-    User.hasMany(models.Participant,
-      { foreignKey: 'user_id', targetKey: 'id' });
-  };
-
-  User.associate = function (models) {
-    User.hasMany(models.Offer, { foreignKey: 'user_id', targetKey: 'id' });
-  };
-
-  User.associate = function (models) {
-    User.hasMany(models.RefreshToken,
-      { foreignKey: 'user_id', targetKey: 'id' });
-  };
-
+    {
+      sequelize,
+      modelName: 'User',
+    }
+  );
   return User;
 };
