@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // TODO associations
+      User.hasMany(models.Offer, { foreignKey: 'userId', targetKey: 'id' });
+      User.hasMany(models.Contest, { foreignKey: 'userId', targetKey: 'id' });
+      User.hasMany(models.Rating, { foreignKey: 'userId', targetKey: 'id' });
     }
   }
   User.init(

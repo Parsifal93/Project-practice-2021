@@ -5,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   class Offer extends Model {
     static associate(models) {
       // TODO associations
+      Offer.belongsTo(models.User, { foreignKey: 'userId', sourceKey: 'id' });
+      Offer.belongsTo(models.Contest, {
+        foreignKey: 'contestId',
+        sourceKey: 'id',
+      });
+      Offer.hasOne(models.Rating, { foreignKey: 'offerId', targetKey: 'id' });
     }
   }
   Offer.init(
@@ -23,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'Contest',
           key: 'id',
-        }
+        },
       },
       text: {
         type: DataTypes.STRING,

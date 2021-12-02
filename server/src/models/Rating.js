@@ -3,6 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   class Rating extends Model {
     static associate(models) {
       // TODO associations
+      Rating.belongsTo(models.User, { foreignKey: 'userId', targetKey: 'id' });
+      Rating.belongsTo(models.Offer, {
+        foreignKey: 'offerId',
+        targetKey: 'id',
+      });
     }
   }
   Rating.init(
@@ -14,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'Offer',
           key: 'id',
-        }
+        },
       },
       userId: {
         type: DataTypes.INTEGER,
@@ -23,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'User',
           key: 'id',
-        }
+        },
       },
       mark: {
         type: DataTypes.FLOAT,
