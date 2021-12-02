@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         type: DataTypes.ENUM(...Object.values(CONSTANTS.OFFER_STATUSES)),
-        defaultValue: 'pending',
+        defaultValue: CONSTANTS.OFFER_STATUSES.PENDING,
         validate: {
           notEmpty: true,
         },

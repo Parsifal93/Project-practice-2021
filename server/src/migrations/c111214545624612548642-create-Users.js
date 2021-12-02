@@ -1,3 +1,4 @@
+const CONSTANTS = require('../constants');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -35,7 +36,7 @@ module.exports = {
         defaultValue: 'anon.png',
       },
       role: {
-        type: Sequelize.ENUM('customer', 'creator'),
+        type: Sequelize.ENUM(...Object.values(CONSTANTS.ROLES)),
         allowNull: false,
       },
       balance: {
@@ -48,6 +49,14 @@ module.exports = {
         allowNull: false,
         defaultValue: 0,
       },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     })
       .then(() => queryInterface.addConstraint('Users',  {
         type: 'check',
