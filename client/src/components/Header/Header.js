@@ -87,8 +87,8 @@ class Header extends React.Component {
           </div>
           <div className={styles.loginSignnUpHeaders}>
             <div className={styles.numberContainer}>
-              <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
-              <a href="tel:+18773553585"><span>(877)&nbsp;355-3585</span></a>
+            <a href="tel:+18773553585"><img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
+              <span>(877)&nbsp;355-3585</span></a>
             </div>
             <div className={styles.userButtonsContainer}>
               {this.renderLoginButtons()}
@@ -106,15 +106,15 @@ class Header extends React.Component {
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">Beauty</a></li>
-                      <li><a href="http://www.google.com">Consulting</a></li>
-                      <li><a href="http://www.google.com">E-Commerce</a></li>
-                      <li><a href="http://www.google.com">Fashion & Clothing</a></li>
-                      <li><a href="http://www.google.com">Finance</a></li>
-                      <li><a href="http://www.google.com">Real Estate</a></li>
-                      <li><a href="http://www.google.com">Tech</a></li>
+                      <li><a href="http://www.google.com">BEAUTY</a></li>
+                      <li><a href="http://www.google.com">CONSULTING</a></li>
+                      <li><a href="http://www.google.com">E-COMMERCE</a></li>
+                      <li><a href="http://www.google.com">FASHION & CLOTHING</a></li>
+                      <li><a href="http://www.google.com">FINABCE</a></li>
+                      <li><a href="http://www.google.com">REAL ESTATE</a></li>
+                      <li><a href="http://www.google.com">TECH</a></li>
                       <li className={styles.last}>
-                        <a href="http://www.google.com">More Categories</a>
+                        <a href="http://www.google.com">MORE CATEGORIES</a>
                       </li>
                     </ul>
                   </li>

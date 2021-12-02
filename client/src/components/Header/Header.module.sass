@@ -43,8 +43,13 @@
         align-items: center
         flex-direction: column
 
-      .nav
+      .nav 
         display: flex
+       
+     
+         
+          
+
 
         ul
           margin: 0
@@ -61,6 +66,7 @@
           &:last-child li
             ul
               width: 200px
+              
 
           li
             display: flex
@@ -70,10 +76,12 @@
             @media(max-width: 700px)
               width: 100%
               padding: 0 15px
+              margin: 10px
 
             &:hover
-              span
+              span 
                 color: #f27e51
+                cursor: pointer
 
               ul
                 display: block
@@ -97,6 +105,7 @@
                 padding-top: 8px
                 box-sizing: border-box
                 border-top: 1px solid aquamarine
+                
 
               li
                 box-sizing: border-box
@@ -104,14 +113,21 @@
                 padding: 10px 15px
                 display: flex
                 justify-content: flex-start
+              
+                
+                
+                
 
                 &:hover
                   background: #f9fafb
+                  
 
                 a
                   font-size: 12px
                   text-decoration: none
                   color: #333
+                  width: 100%
+                  
 
                   &:hover
                     color: #f27e51
@@ -121,6 +137,7 @@
               font-size: 15px
               font-weight: 300
               padding: 15px 0
+              margin: 10px
 
   .loginSignnUpHeaders
     margin-top: 30px
@@ -203,7 +220,7 @@
         font-size: 14px
         border-right: 1px solid #ebebeb
 
-    .numberContainer
+    .numberContainer a 
       text-decoration: none
       color: inherit
       display: flex
@@ -219,14 +236,21 @@
       @media(max-width: 360px)
         padding: 0 5px
         margin-left: 0
+        
+        
 
-      span
+       
+
+      span 
         color: #337ab7
         font-size: 14px
         margin-left: 10px
         @media(max-width: 360px)
-          font-size: 12px
-
+          font-size: 12px 
+          
+          
+        
+          
   .fixedHeader
     z-index: 500
     display: flex
@@ -251,4 +275,5 @@
       letter-spacing: 0.3px
       color: lightyellow
       text-decoration: underline
+      
 
