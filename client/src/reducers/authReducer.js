@@ -1,7 +1,7 @@
 import ACTION from '../actions/actionTypes';
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   error: null,
   data: null,
 };
@@ -38,8 +38,9 @@ export default function (state = initialState, action) {
         error: null,
       };
     }
+    case ACTION.AUTH_ACTION_CANCEL:
     case ACTION.AUTH_ACTION_CLEAR: {
-      return { ...initialState };
+      return { ...initialState, isFetching: false };
     }
     case ACTION.CLEAR_USER_STORE: {
       return {
