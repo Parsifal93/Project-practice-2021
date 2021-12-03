@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './DialogBox.module.sass';
 import CONSTANTS from '../../../../constants';
-import Avatar from '../../../Avatar';
+import Avatar from '../../../Avatar/Avatar';
 
 const DialogBox = (props) => {
   const {

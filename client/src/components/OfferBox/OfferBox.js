@@ -16,7 +16,7 @@ import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const OfferBox = (props) => {
   const findConversationInfo = () => {
@@ -172,7 +172,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
   const { changeMarkError, isShowModal } = state.contestByIdStore;
-  const { id, role } = state.userStore.data;
+  const { id, role } = state.auth.data;
   const { messagesPreview } = state.chatStore;
   return {
     changeMarkError, id, role, messagesPreview, isShowModal,

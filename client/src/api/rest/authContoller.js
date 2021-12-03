@@ -25,5 +25,8 @@ export const logoutUser = (history) => {
   window.localStorage.removeItem(CONSTANTS.ACCESS_TOKEN);
   window.localStorage.removeItem(CONSTANTS.REFRESH_TOKEN);
   history.replace('/login');
-  store.dispatch(clearUserStore());
+
+  setImmediate(() => {
+    store.dispatch(clearUserStore());
+  });
 };

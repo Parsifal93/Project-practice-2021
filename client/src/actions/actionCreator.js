@@ -18,7 +18,7 @@ export const authActionRefresh = (data, history) => ({
   history,
 });
 
-export const authActionCancel = (data, history) => ({
+export const authActionCancel = () => ({
   type: ACTION.AUTH_ACTION_CANCEL,
 });
 
@@ -48,10 +48,10 @@ export const clearSetOfferStatusError = () => ({
   type: ACTION.CLEAR_SET_OFFER_STATUS_ERROR,
 });
 
-export const getUserAction = (data) => ({
+/* export const getUserAction = (data) => ({
   type: ACTION.GET_USER_ACTION,
   replace: data,
-});
+}); */
 
 export const getDataForContest = (data) => ({
   type: ACTION.GET_DATA_FOR_CONTEST_ACTION,
@@ -128,15 +128,15 @@ export const clearContestList = () => ({
   type: ACTION.CLEAR_CONTESTS_LIST,
 });
 
-export const onlyForNotAuthorize = (data) => ({
+/* export const onlyForNotAuthorize = (data) => ({
   type: ACTION.ONLY_FOR_NOT_AUTHORIZE_USERS,
   replace: data,
-});
+}); */
 
-export const headerRequest = () => ({
+/* export const headerRequest = () => ({
   type: ACTION.HEADER_REQUEST_AUTHORIZE,
 });
-
+ */
 export const clearAuth = () => ({
   type: ACTION.AUTH_ACTION_CLEAR,
 });
