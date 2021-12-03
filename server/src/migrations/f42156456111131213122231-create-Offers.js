@@ -1,3 +1,4 @@
+const CONSTANTS = require('../constants');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -37,9 +38,17 @@ module.exports = {
         allowNull: true,
       },
       status: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM(...Object.values(CONSTANTS.OFFER_STATUSES)),
         allowNull: true,
-        defaultValue: 'pending',
+        defaultValue: CONSTANTS.OFFER_STATUSES.PENDING,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
     });
   },
