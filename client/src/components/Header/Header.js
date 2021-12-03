@@ -261,6 +261,6 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => state.userStore;
+const mapStateToProps = (state) => state.auth;
 
 export default withRouter(connect(mapStateToProps)(Header));
