@@ -2,25 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from '../../components/Logo';
-import RegistrationForm
-  from '../../components/RegistrationForm/RegistrationForm';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import styles from './RegistrationPage.module.sass';
 import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
+import text from './regisrationText.json'
+
+const insertLinks = (text) => {
+  const linkRegex = /\$.*\$\(.*\)/;
+  const foundArray = [linkRegex.matchAll(text)];
+  console.log(foundArray);
+  // const preparedText = 
+  // return 
+};
 
 const RegistrationPage = (props) => {
-  props.clearError();
-
   return (
     <div className={styles.signUpPage}>
       <div className={styles.signUpContainer}>
         <div className={styles.headerSignUpPage}>
           <Logo src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} />
           <div className={styles.linkLoginContainer}>
-            <Link
-              to="/login"
-              style={{ textDecoration: 'none' }}
-            >
+            <Link to="/login" style={{ textDecoration: 'none' }}>
               <span>Login</span>
             </Link>
           </div>
@@ -31,143 +34,51 @@ const RegistrationPage = (props) => {
         <div className={styles.articlesMainContainer}>
           <div className={styles.ColumnContainer}>
             <div className={styles.headerArticle}>
-              Why should I use
-              Squadhelp?
+            {text.block1.header}
             </div>
             <div className={styles.article}>
-              You always have an option of hiring a consultant or coming up with
-              the name
-              yourself.
-              However, Squadhelp builds great brands that succeed faster by
-              connecting you with
-              the
-              most creative people across the globe. Most importantly, Squadhelp
-              provides you with
-              choice: you get to see ideas from dozens (in some cases, hundreds)
-              of contestants
-              before
-              you select a winner. Typically, you would spend far less money
-              with Squadhelp
-              (our contests start at $199) than hiring an agency. Also, you will
-              receive immediate
-              results - most contests begin receiving submissions within minutes
-              of starting.
+              {text.block1.content}
             </div>
             <div className={styles.headerArticle}>
-              How is Squadhelp
-              Different?
+            {text.block2.header}
             </div>
             <div className={styles.article}>
-              Since 2011, we have been committed to disrupting the traditional
-              agency model.
-              Our platform offers much more than a typical crowdsourcing
-              experience. From Machine
-              Learning to Audience Testing to Comprehensive Trademark
-              Validation, you receive
-              best-in-class support for your branding projects.
-              Breadth: Our Contest-Based Crowdsourcing approach allows you to
-              receive an unmatched
-              breadth of name ideas from dozens of unique, creative minds while
-              working with
-              the world's largest branding community.
-              Quality and Collaboration: Using an advanced Quality Scoring
-              Algorithm, we ensure
-              that you receive more ideas from our top-quality creatives, and we
-              use Gamification
-              best practices to encourage high-quality brainstorming and two-way
-              communication
-              throughout your contest.
-              We don’t stop at ideation: Choose your name with confidence
-              through our high-end
-              validation services. Poll your target demographics to get unbiased
-              feedback on your
-              favorite names, and receive Trademark Risk and Linguistics
-              Analysis Reports
-              developed
-              by a Licensed Trademark Attorney.
+            {text.block2.content}
             </div>
           </div>
           <div className={styles.ColumnContainer}>
             <div className={styles.headerArticle}>
-              I’ve never used Squadhelp
-              before. What should I
-              expect?
+            {text.block3.header}
             </div>
             <div className={styles.article}>
-              Most customers tell us that Squadhelp’s process is effective,
-              easy,
-              fast, and even fun. We constantly hear extremely positive feedback
-              with respect
-              to the breadth of ideas submitted to each contest, and many
-              customers are surprised
-              at how insightful working with dozens of creative individuals from
-              across the globe
-              can be.
+            {text.block3.content}
             </div>
-            <div className={styles.headerArticle}>How much does it cost?</div>
+            <div className={styles.headerArticle}>{text.block4.header}</div>
             <div className={styles.article}>
-              Our naming competitions start at $199, and our logo design
-              competitions start at
-              $299.
-              Also, there are three additional contest level that each offer
-              more features and
-              benefits.
-              See our Pricing Page for details.
+            {text.block4.content}
             </div>
             <div className={styles.headerArticle}>
-              Do you offer any discount
-              for multiple contests?
+            {text.block5.header}
             </div>
             <div className={styles.article}>
-              Yes! We have many contest bundles - our most popular being our
-              Name, Tagline,
-              and Logo bundle. Bundles allow you to purchase multiple contests
-              at one time and
-              save
-              as much as from $75 - $400. You can learn more about our bundle
-              options on our
-              Pricing
-              Page.
+            {text.block5.content}
             </div>
             <div className={styles.headerArticle}>
-              Will you help me validate my
-              name?
+            {text.block6.header}
             </div>
             <div className={styles.article}>
-              Yes! We believe that validating and securing your name is a
-              critical part of your
-              branding process. Squadhelp offers domain checks, Trademark
-              support, linguistics
-              analysis, and professional audience testing to help you choose
-              your name with
-              confidence. We even have special prices for Trademark filing for
-              our customers.
+            {text.block6.content}
             </div>
             <div className={styles.headerArticle}>
-              I have other questions! How
-              can I get in touch with
-              Squadhelp?
+            {text.block7.header}
             </div>
             <div className={styles.article}>
               Check out our
-              {' '}
-              <span className={styles.orangeSpan}>FAQs</span>
-              {' '}
-              or
-              send us a
-              <span
-                className={styles.orangeSpan}
-              >
-message
-              </span>
-              . For assistance
-              with launching a contest,
-              you can also call us at (877) 355-3585 or schedule a
-              <span
-                className={styles.orangeSpan}
-              >
-Branding Consultation
-              </span>
+              <a href="" className={styles.orangeSpan}> FAQs </a>
+              or send us a<a className={styles.orangeSpan}> message</a>. For
+              assistance with launching a contest, you can also call us at (877)
+              355-3585 or schedule a
+              <a className={styles.orangeSpan}> Branding Consultation</a>
             </div>
           </div>
         </div>
