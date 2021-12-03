@@ -5,7 +5,7 @@ import Logo from '../Logo';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
 import * as authController from '../../api/rest/authContoller';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 class Header extends React.Component {
   logOut = () => {
@@ -266,6 +266,6 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => state.userStore;
+const mapStateToProps = (state) => state.auth;
 
 export default withRouter(connect(mapStateToProps)(Header));

@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router';
 import Spinner from '../Spinner/Spinner';
 
 export default function PrivateRoute({ roles, ...rest }) {
-  const { data, isFetching } = useSelector((state) => state.userStore);
+  const { data, isFetching } = useSelector((state) => state.auth);
 
   if (isFetching) {
     return <Spinner />;

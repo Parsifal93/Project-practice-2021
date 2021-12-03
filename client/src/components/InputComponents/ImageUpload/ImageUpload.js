@@ -9,7 +9,7 @@ const ImageUpload = (props) => {
   const onChange = (e) => {
     const node = window.document.getElementById('imagePreview');
     const file = e.target.files[0];
-    const imageType = /image.*/;
+    const imageType = /image.(jpeg|pjpeg|png|gif|webp)/;
     if (!imageType.test(file.type)) {
       e.target.value = '';
     } else {
@@ -24,12 +24,11 @@ const ImageUpload = (props) => {
   return (
     <div className={uploadContainer}>
       <div className={inputContainer}>
-        <span>Support only images (*.png, *.gif, *.jpeg)</span>
+        <span>Support only images (*.png, *.gif, *.jpeg, *.webp)</span>
         <input
           {...rest}
           id="fileInput"
           type="file"
-          accept=".jpg, .png, .jpeg"
           onChange={onChange}
         />
         <label htmlFor="fileInput">Chose file</label>

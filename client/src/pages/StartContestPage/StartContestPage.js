@@ -12,7 +12,7 @@ import Header from '../../components/Header/Header';
 const StartContestPage = (props) => {
   const history = useHistory();
 
-  if (props.userStore.data.role !== CONSTANTS.CUSTOMER) {
+  if (props.auth.data.role !== CONSTANTS.CUSTOMER) {
     history.replace('/');
   }
 
@@ -113,8 +113,8 @@ const StartContestPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { bundleStore, userStore } = state;
-  return { bundleStore, userStore };
+  const { bundleStore, auth } = state;
+  return { bundleStore, auth };
 };
 
 const mapDispatchToProps = (dispatch) => ({

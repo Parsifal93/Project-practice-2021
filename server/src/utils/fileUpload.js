@@ -7,17 +7,17 @@ const env = process.env.NODE_ENV || 'development';
 
 const filePath = env === 'production'
   ? '/var/www/html/images/'
-  : `${constants.FILES_PATH}`;
+  : `${constants.FILES_PATH}/images`;
 
 if (!fs.existsSync(filePath)) {
-  fs.mkdirSync(filePath, {
+  fs.mkdirSync(`${filePath}/avatars`, {
     recursive: true,
   });
 }
 
 const storageAvatarFiles = multer.diskStorage({
   destination (req, file, cb) {
-    cb(null, `${filePath}/images/avatars`);
+    cb(null, `${filePath}/avatars`);
   },
   filename (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -26,7 +26,7 @@ const storageAvatarFiles = multer.diskStorage({
 
 const storageContestFiles = multer.diskStorage({
   destination (req, file, cb) {
-    cb(null, `${filePath}/images`);
+    cb(null, `${filePath}`);
   },
   filename (req, file, cb) {
     cb(null, Date.now() + file.originalname);

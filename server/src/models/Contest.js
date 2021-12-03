@@ -1,93 +1,102 @@
-
+const { Model } = require('sequelize');
+const CONSTANTS = require('../constants');
 
 module.exports = (sequelize, DataTypes) => {
-  const Contest = sequelize.define('Contests', {
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER,
-    },
-    orderId: {
-      allowNull: false,
-      type: DataTypes.STRING,
-    },
-    userId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id',
+  class Contest extends Model {
+    static associate(models) {
+      // TODO associations
+      Contest.belongsTo(models.User, { foreignKey: 'userId', sourceKey: 'id' });
+      Contest.hasMany(models.Offer, {
+        foreignKey: 'contestId',
+        targetKey: 'id',
+      });
+    }
+  }
+  Contest.init(
+    {
+      orderId: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validate: {
+          notNull: true,
+        },
+      },
+      userId: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id',
+        },
+      },
+      contestType: {
+        allowNull: false,
+        type: DataTypes.ENUM(...Object.values(CONSTANTS.CONTEST_TYPES)),
+        validate: {
+          notNull: true,
+        },
+      },
+      fileName: {
+        type: DataTypes.STRING,
+      },
+      originalFileName: {
+        type: DataTypes.STRING,
+      },
+      title: {
+        type: DataTypes.STRING,
+      },
+      typeOfName: {
+        type: DataTypes.STRING,
+      },
+      industry: {
+        type: DataTypes.STRING,
+      },
+      focusOfWork: {
+        type: DataTypes.TEXT,
+      },
+      targetCustomer: {
+        type: DataTypes.TEXT,
+      },
+      styleName: {
+        type: DataTypes.STRING,
+      },
+      nameVenture: {
+        type: DataTypes.STRING,
+      },
+      typeOfTagline: {
+        type: DataTypes.STRING,
+      },
+      brandStyle: {
+        type: DataTypes.STRING,
+      },
+      createdAt: {
+        type: DataTypes.STRING,
+      },
+      status: {
+        type: DataTypes.ENUM(...Object.values(CONSTANTS.CONTEST_STATUSES)),
+        allowNull: false,
+      },
+      prize: {
+        allowNull: false,
+        type: DataTypes.DECIMAL,
+        validate: {
+          min: 0,
+          notNull: true,
+        },
+      },
+      priority: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 0,
+          notNull: true,
+        },
       },
     },
-    contestType: {
-      allowNull: false,
-      type: DataTypes.ENUM('name', 'tagline', 'logo'),
-    },
-    fileName: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    originalFileName: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    title: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    typeOfName: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    industry: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    focusOfWork: {
-      allowNull: true,
-      type: DataTypes.TEXT,
-    },
-    targetCustomer: {
-      allowNull: true,
-      type: DataTypes.TEXT,
-    },
-    styleName: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    nameVenture: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    typeOfTagline: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    brandStyle: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    createdAt: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    status: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    prize: {
-      allowNull: false,
-      type: DataTypes.DECIMAL,
-    },
-    priority: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-    },
-  },
-  {
-    timestamps: false,
-  });
-
+    {
+      sequelize,
+      modelName: 'Contest',
+    }
+  );
   return Contest;
 };

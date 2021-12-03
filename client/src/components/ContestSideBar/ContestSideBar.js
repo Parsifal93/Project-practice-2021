@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import styles from './ContestSideBar.module.sass';
 import CONSTANTS from '../../constants';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const ContestSideBar = (props) => {
   const getTimeStr = () => {
@@ -68,6 +68,6 @@ const ContestSideBar = (props) => {
   return renderContestInfo();
 };
 
-const mapStateToProps = (state) => state.userStore;
+const mapStateToProps = (state) => state.auth;
 
 export default connect(mapStateToProps, null)(ContestSideBar);
