@@ -7,7 +7,10 @@ const { prepareUser } = require('../utils/functions');
 module.exports.login = async (req, res, next) => {
   try {
     const foundUser = await userQueries.findUser({ email: req.body.email });
+
     await userQueries.passwordCompare(req.body.password, foundUser.password);
+    // const bool = await foundUser.comparePassword(req.body.password);
+    // throw error if bool === false
 
     const tokenPair = await createSession(foundUser);
 

@@ -1,6 +1,14 @@
+const bcrypt = require('bcrypt');
 const { Model } = require('sequelize');
 const CONSTANTS = require('../constants');
 
+async function hashPassword(user, options) {
+  if (user.changed('password')) {
+    const { password } = user;
+    const hashedPassword = await bcrypt.hash(password, CONSTANTS.SALT_ROUNDS);
+    user.password = hashedPassword;
+  }
+}
 // await bcrypt.hash(req.body.password, CONSTANTS.SALT_ROUNDS)
 
 module.exports = (sequelize, DataTypes) => {
@@ -10,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Offer, { foreignKey: 'userId', targetKey: 'id' });
       User.hasMany(models.Contest, { foreignKey: 'userId', targetKey: 'id' });
       User.hasMany(models.Rating, { foreignKey: 'userId', targetKey: 'id' });
+    }
+
+    /* Refactor auth controller to user this part */
+    async comparePassword(password) {
+      return bcrypt.compare(password, this.getDataValue('password'));
     }
   }
   User.init(
@@ -97,5 +110,8 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'User',
     }
   );
+  User.beforeCreate(hashPassword);
+  User.beforeUpdate(hashPassword);
+
   return User;
 };
