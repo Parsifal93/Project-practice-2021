@@ -4,7 +4,7 @@ import UpdateUserInfoForm from '../UpdateUserInfoForm/UpdateUserInfoForm';
 import { updateUserData, changeEditModeOnUserProfile } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './UserInfo.module.sass';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const UserInfo = (props) => {
   const updateUserData = (values) => {
@@ -70,7 +70,7 @@ const UserInfo = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { data } = state.auth;
+  const { data } = state.userStore;
   const { isEdit } = state.userProfile;
   return { data, isEdit };
 };

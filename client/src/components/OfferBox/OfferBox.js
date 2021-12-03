@@ -16,7 +16,7 @@ import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './confirmStyle.css';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const OfferBox = (props) => {
   const findConversationInfo = () => {

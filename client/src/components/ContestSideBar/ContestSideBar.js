@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import styles from './ContestSideBar.module.sass';
 import CONSTANTS from '../../constants';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const ContestSideBar = (props) => {
   const getTimeStr = () => {
